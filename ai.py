@@ -1,8 +1,8 @@
-import logging
 import os
 import openai
 
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = ""
+
 def get_response(name, problem):
     completion = openai.chat.completions.create(
         model="gpt-3.5-turbo",
