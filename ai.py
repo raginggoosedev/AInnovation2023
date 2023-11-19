@@ -1,9 +1,10 @@
 import os
 import openai
 
-os.environ['OPENAI_API_KEY'] = ""
+os.environ['OPENAI_API_KEY'] = "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"
 
-#def get_response(name, problem):
+
+# def get_response(name, problem):
 def get_response(prompt):
     completion = openai.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -19,12 +20,13 @@ def get_response(prompt):
                         "most likely to least likely, then the list of remedies, making sure to point out which "
                         "diagnosis they would be for"},
             {"role": "user",
-             "content": name + problem}
+             "content": prompt}
         ],
         max_tokens=256,
         temperature=0.5
     )
     return completion.choices[0].message
+
 
 def get_patient_name(prompt):
     completion = openai.chat.completions.create(
@@ -40,6 +42,7 @@ def get_patient_name(prompt):
     )
     return completion.choices[0].message.content
 
+
 def get_patient_symptoms(prompt):
     completion = openai.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -54,6 +57,7 @@ def get_patient_symptoms(prompt):
     )
     return completion.choices[0].message.content
 
+
 def translate_medical_terms(prompt):
     completion = openai.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -62,6 +66,25 @@ def translate_medical_terms(prompt):
              "content": "I am going to give you a list of symptoms that a patient is feeling. Translate them to precise medical doctor terms, and please put them in a comma-separated list. Make them sound fancy"},
             {"role": "user",
              "content": prompt}
+        ],
+        max_tokens=256,
+        temperature=0.5
+    )
+    return completion.choices[0].message.content
+
+
+def get_possible_conditions(symptoms):
+    completion = openai.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system",
+             "content": "You are a medical AI, I will give you a list of symptoms, both in layman terms and medical "
+                        "terms, and I want"
+                        "you to give me a list of possible conditions that the patient could have, listing them from "
+                        "most likely to least likely, only listing the conditions, separated by commas, add nothing "
+                        "else.  You do not need to add a subheader called Possible conditions as I already have one set up"},
+            {"role": "user",
+             "content": symptoms}
         ],
         max_tokens=256,
         temperature=0.5
