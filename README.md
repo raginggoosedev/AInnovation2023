@@ -1,11 +1,9 @@
-# AInnovation2023
+# AInnovation2023 - Team 22
 
-### Patient dumb, don't know how describe symptoms to doctor
-
-### Patient types layman's terms / sentence into natural language processing algorithm
-
-### Generative medical AI algorithm translates patient's input into precise medical terminology
-
-### Doctor will be able to accurately assess and treat patient
-
-### Algorithm can even predict possible causes and remedies for paitent's condition
+###Identify
+Patients typically do not understand the specific medical condition they experience.
+Doctors need to diagnose these patients based on the symptoms, first by their words.
+Identifying the specific condition can be challenging sometimesome because patients could take 
+longer than typical diagnosis, and doctors sometime may diagnose the patient with a different medical condition.
+Could be unable to diagnose the patient
+![image](https://github.com/raginggoosedev/AInnovation2023/assets/127615531/5070b239-b5ef-483e-93a4-7fa9489c40c0)
