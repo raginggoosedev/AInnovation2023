@@ -1,7 +1,9 @@
 import os
 import openai
 
-os.environ['OPENAI_API_KEY'] = "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"
+os.environ['OPENAI_API_KEY'] = ""
+
+TEMPERATURE = 0.5
 
 
 # def get_response(name, problem):
@@ -23,7 +25,7 @@ def get_response(prompt):
              "content": prompt}
         ],
         max_tokens=256,
-        temperature=0.5
+        temperature=TEMPERATURE
     )
     return completion.choices[0].message
 
@@ -38,7 +40,7 @@ def get_patient_name(prompt):
              "content": prompt}
         ],
         max_tokens=256,
-        temperature=0.5
+        temperature=TEMPERATURE
     )
     return completion.choices[0].message.content
 
@@ -53,7 +55,7 @@ def get_patient_symptoms(prompt):
              "content": prompt}
         ],
         max_tokens=256,
-        temperature=0.5
+        temperature=TEMPERATURE
     )
     return completion.choices[0].message.content
 
@@ -68,7 +70,7 @@ def translate_medical_terms(prompt):
              "content": prompt}
         ],
         max_tokens=256,
-        temperature=0.5
+        temperature=TEMPERATURE
     )
     return completion.choices[0].message.content
 
@@ -87,6 +89,6 @@ def get_possible_conditions(symptoms):
              "content": symptoms}
         ],
         max_tokens=256,
-        temperature=0.5
+        temperature=TEMPERATURE
     )
     return completion.choices[0].message.content

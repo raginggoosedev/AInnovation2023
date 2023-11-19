@@ -7,8 +7,10 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+from raginggoosedoc import views
 
 urlpatterns = [
+    path('user-input/', views.user_input_view, name='user_input'),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
